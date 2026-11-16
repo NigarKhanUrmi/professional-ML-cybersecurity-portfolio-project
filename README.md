@@ -16,7 +16,24 @@ Distributed Denial-of-Service (DDoS) attacks send a large amount of traffic to n
 I used the publicly available CIC-DDoS2019 dataset(https://data.mendeley.com/datasets/ssnc74xm6r/1) from Mendeley Data. The dataset contains network-flow 400K+ records with approximately 80 features describing traffic characteristics, including flow duration, packet counts, packet lengths, and traffic rates. The original dataset version described in the reference paper contains 431,371 records, including benign and DDoS traffic.
 To keep the experiment computationally manageable, I selected 20,000 records, with 10,000 benign and 10,000 DDoS records. The prediction target has to be binary: benign traffic or DDoS attack. The sample size, class distribution, data quality, and available features were verified during exploratory data analysis.
 ***Due to dataset size and redistribution considerations,the raw dataset is not included in this repository.***
- 
+
+The project compared six machine-learning models using two feature sets:
+
+- All 66 eligible features
+- 22 Pearson-selected features
+
+The models were evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
+- Training time
+- Prediction time
+
+The final results showed how much performance was retained after reducing the feature space from 66 to 22 features and whether the reduced feature
+set improved computational efficiency.
 
 **Methodology**
 
@@ -59,23 +76,7 @@ I maintained an experiment log to record the settings and results of each model 
 
 Our reference is Becerra-Suarez, Fernández-Roman, and Forero (2024), “Improvement of Distributed Denial of Service Attack Detection through Machine Learning and Data Processing,” Mathematics, 12(9), 1294. We implemented a fair, appropriately scoped comparison based on its preprocessing, correlation-based feature reduction, and model-comparison approach. Because our sample size and selected feature count differ from the paper, published scores were treated as context rather than directly equivalent results.
 
-The project compared six machine-learning models using two feature sets:
 
-- All 66 eligible features
-- 22 Pearson-selected features
-
-The models were evaluated using:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- ROC-AUC
-- Training time
-- Prediction time
-
-The final results showed how much performance was retained after reducing the feature space from 66 to 22 features and whether the reduced feature
-set improved computational efficiency.
 
 Reference:
 Becerra-Suarez, F. L., Fernández-Roman, I., & Forero, M. G. (2024). Improvement of Distributed Denial of Service Attack Detection through Machine Learning and Data Processing. Mathematics, 12(9), 1294. https://doi.org/10.3390/math12091294
